@@ -20,11 +20,11 @@ Node v8.11.3
 Web3.js v1.0.0-beta.37
 
 # Project Run PreRequisites
-Run ganache-cli on one window
-truffle compile
-truffle test
-truffle migrate
-truffle migrate --network rinkeby --reset 
+* Run ganache-cli on one window
+* truffle compile
+* truffle test
+* truffle migrate
+* truffle migrate --network rinkeby --reset 
 
 
 Contract Adress-SolnSquareVerifier
