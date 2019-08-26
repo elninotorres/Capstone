@@ -99,8 +99,8 @@
 // }
 
 const HDWalletProvider = require('truffle-hdwallet-provider');
-// const mnemonic = 'avocado pig blur fence sister meat pull ticket say doctor nation gorilla';
-const mnemonic = 'bread mom hard denial control merit carpet easy eternal faculty square upset';
+const mnemonic = 'melt input remember skill want spatial tower lunar glory left check evolve';
+// const mnemonic = 'bread mom hard denial control merit carpet easy eternal faculty square upset';
 
 module.exports = {
   networks: {
@@ -111,10 +111,10 @@ module.exports = {
     },
     rinkeby: {
       provider: function() {
-        return new HDWalletProvider(mnemonic, 'https://rinkeby.infura.io/v3/015eeea01e8f492c904ea6df0f57bc95')
+        return new HDWalletProvider(mnemonic, 'https://rinkeby.infura.io/v3/1b30c349d8ef4dfe85d5d493e8e4a2e4')
       },
-      gas: 6500000,
-      gasPrice: 10000000000,
+      // gas: 7500000,
+      // gasPrice: 10000000000,
       network_id: 4,
     },
   },

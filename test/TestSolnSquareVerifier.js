@@ -1,10 +1,12 @@
 const SolnSquareVerifier = artifacts.require('SolnSquareVerifier');
+var Verifier = artifacts.require('Verifier');
 const zokratesProof = require("../zokrates/code/square/proof.json");
 
 contract('TestSolnSquareVerifier', accounts => {
     describe('Exercise SolnSquareVerifier', function () {
       beforeEach(async function () { 
-        this.contract = await SolnSquareVerifier.new();
+        let verifierContract = await Verifier.new({from: accounts[0]});
+        this.contract = await SolnSquareVerifier.new(verifierContract.address, {from: accounts[0]});
       });
 
       // Test if a new solution can be added for contract - SolnSquareVerifier
@@ -25,7 +27,7 @@ contract('TestSolnSquareVerifier', accounts => {
         await this.contract.addSolution(
           1, accounts[1],
           ...Object.values(zokratesProof.proof), zokratesProof.inputs);
-        let tx = await this.contract.mint(
+        let tx = await this.contract.mintNewToken(
           accounts[1], 1, {from: accounts[0]});
         let tokenTransferredEvent = tx.logs[0].event; // transferred == minted
         assert.equal(

@@ -4,17 +4,17 @@ import "./ERC721Mintable.sol";
 import "./Verifier.sol";
 
 // TODO define another contract named SolnSquareVerifier that inherits from your ERC721Mintable class
-contract SolnSquareVerifier is Verifier, ERC721MintableComplete("Capstones", "[") {
+contract SolnSquareVerifier is Verifier, ERC721MintableComplete("Capstones-Minted Token", "[") {
 
     // TODO define a contract call to the zokrates generated solidity contract <Verifier> or <renamedVerifier>
-    // Verifier Verifier_;
+    Verifier Verifier_;
 
-    constructor() public {
-    }
-
-    // constructor(address verifierAddress) public {
-    //     Verifier_ = Verifier(verifierAddress);
+    // constructor() public {
     // }
+
+    constructor(address verifierAddress) public {
+        Verifier_ = Verifier(verifierAddress);
+    }
 
     // TODO define a solutions struct that can hold an index & an address
     struct Solution {
@@ -68,7 +68,7 @@ contract SolnSquareVerifier is Verifier, ERC721MintableComplete("Capstones", "["
     // TODO Create a function to mint new NFT only after the solution has been verified
     //  - make sure the solution is unique (has not been used before)
     //  - make sure you handle metadata as well as tokenSuplly
-    function mint(address to, uint256 tokenId) public returns (bool) {
+    function mintNewToken(address to, uint256 tokenId) public returns (bool) {
         require(
             tokenIdToSolution[tokenId].exists,
             "Requires solution has been added for token");
